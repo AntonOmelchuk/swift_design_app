@@ -1,16 +1,21 @@
-//
-//  ContentView.swift
-//  DesignCode
-//
-//  Created by Anton Omelchuk on 09.02.2021.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            VStack {
+                Text("SwiftUI")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("accent"))
+                    .padding(.top)
+                Text("Certificate")
+                    .foregroundColor(Color.white)
+            }
+            Image("Background")
+            }
+            .background(Color.black)
+            .cornerRadius(10)
     }
 }
 
