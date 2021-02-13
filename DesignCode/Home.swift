@@ -1,12 +1,20 @@
 import SwiftUI
 
+struct Home_Previews: PreviewProvider {
+    static var previews: some View {
+        Home()
+    }
+}
+
 struct Home: View {
+    var menuItems = ["My Account", "Billing", "Team", "Sign out"]
+    var menu = menuData
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            MenuRow(image: "person.crop.circle", label: "My Account")
-            MenuRow(image: "creditcard", label: "Billing")
-            MenuRow(image: "person.and.person", label: "Team")
-            MenuRow(image: "arrow.uturn.down", label: "Sign out")
+            ForEach(menu) { item in
+                MenuRow(image: item.icon, label: item.label)
+            }
             Spacer()
         }
         .padding(.top, 20)
@@ -16,12 +24,6 @@ struct Home: View {
         .cornerRadius(30)
         .padding(.trailing, 60)
         .shadow(radius: 21)
-    }
-}
-
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
     }
 }
 
@@ -41,3 +43,16 @@ struct MenuRow: View {
         }
     }
 }
+
+struct MenuInterface: Identifiable {
+    var id = UUID()
+    var icon: String
+    var label: String
+}
+
+let menuData = [
+    MenuInterface(icon: "person.crop.circle", label: "My Account"),
+    MenuInterface(icon: "creditcard", label: "Billing"),
+    MenuInterface(icon: "person.and.person", label: "Team"),
+    MenuInterface(icon: "arrow.uturn.down", label: "Sign out"),
+]
