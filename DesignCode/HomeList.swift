@@ -5,24 +5,41 @@ struct HomeList: View {
     var courses = coursesData
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 30) {
-                ForEach(courses) { item in
-                    Button(action: { self.show.toggle() }) {
-                        CourseView(
-                            title: item.title,
-                            image: item.image,
-                            color: item.color,
-                            shadowColor: item.shadowColor
-                        )
-                    }
-                    
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Courses")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                    Text("22 courses")
+                        .foregroundColor(Color.gray)
                 }
-            }.sheet(isPresented: $show, content: {
-                Home()
-            })
-            .padding(.leading, 30)
+                Spacer()
+            }
+            .padding(.leading, 70)
+            .padding(.bottom, 40)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 30) {
+                    ForEach(courses) { item in
+                        Button(action: { self.show.toggle() }) {
+                            CourseView(
+                                title: item.title,
+                                image: item.image,
+                                color: item.color,
+                                shadowColor: item.shadowColor
+                            )
+                        }
+                        
+                    }
+                }.sheet(isPresented: $show, content: {
+                    Home()
+                })
+                .padding(.leading, 40)
+            }
+            Spacer()
         }
+        .padding(.top, 78.0)
             
     }
 }
@@ -45,7 +62,7 @@ struct CourseView: View {
                 .font(.title)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(Color.white)
-                .padding(20)
+                .padding(30)
                 .lineLimit(4)
                 .padding(.trailing, 30)
             Spacer()
