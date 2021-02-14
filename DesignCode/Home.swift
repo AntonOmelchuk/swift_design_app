@@ -8,12 +8,27 @@ struct Home_Previews: PreviewProvider {
 
 struct Home: View {
     @State var show = false
-
+    @State var showProfile = false
+    
     var body: some View {
         ZStack {
-            Button(action: { self.show.toggle() }, label: {
-                Text("Open Menu")
-            })
+            ContentView()
+                .background(Color.white)
+                .cornerRadius(30)
+                .shadow(radius: 20)
+                .animation(.default)
+                .offset(y: showProfile ? 0 : UIScreen.main.bounds.height)
+            
+            HStack {
+                MenuButton(show: $show)
+                    .offset(x: -30, y: showProfile ? 0 : 80)
+                    .animation(.default)
+                Spacer()
+                MenuRight(show: $showProfile)
+                    .offset(x: -16, y: showProfile ? 0 : 88)
+                    .animation(.default)
+                
+            }
             
             MenuView(show: $show)
         }
@@ -74,6 +89,62 @@ struct MenuView: View {
         .offset(x: show ? 0 : -UIScreen.main.bounds.width)
         .onTapGesture {
             self.show.toggle()
+        }
+    }
+}
+
+struct CircleButton: View {
+    var icon = "person.crop.circle"
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.black)
+        }
+        .frame(width: 44, height: 44)
+        .background(Color.white)
+        .cornerRadius(30)
+        .shadow(color: Color("buttonShadow"), radius: 10, x: 0, y: 10)
+    }
+}
+
+struct MenuButton: View {
+    @Binding var show: Bool
+    
+    var body: some View {
+        VStack(alignment: .trailing){
+            Button(action: { self.show.toggle() }) {
+                HStack {
+                    Spacer()
+                    Image(systemName: "list.dash")
+                        .foregroundColor(.black)
+                }
+                .padding(.trailing, 20)
+                .frame(width: 90, height: 60)
+                .background(Color.white)
+                .cornerRadius(30)
+                .shadow(color: Color("buttonShadow"), radius: 20, x: 0, y: 10)
+            }
+            Spacer()
+        }
+    }
+}
+
+struct MenuRight: View {
+    @Binding var show: Bool
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Button(action: { self.show.toggle() }) {
+                    CircleButton()
+                }
+                Button(action: { self.show.toggle() }) {
+                    CircleButton(icon: "bell")
+                }
+            }
+            Spacer()
+            
         }
     }
 }
