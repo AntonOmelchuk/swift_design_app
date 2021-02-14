@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A42D78325D86CEA007CB649 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42D78225D86CEA007CB649 /* Home.swift */; };
+		3AA9D8E425D97C4E00A62D10 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA9D8E325D97C4E00A62D10 /* HomeList.swift */; };
 		3ABB9F2325D334F700063E0B /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB9F2225D334F700063E0B /* DesignCodeApp.swift */; };
 		3ABB9F2525D334F800063E0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB9F2425D334F800063E0B /* ContentView.swift */; };
 		3ABB9F2725D334FA00063E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABB9F2625D334FA00063E0B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		3A42D78225D86CEA007CB649 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3AA9D8E325D97C4E00A62D10 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		3ABB9F1F25D334F700063E0B /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABB9F2225D334F700063E0B /* DesignCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeApp.swift; sourceTree = "<group>"; };
 		3ABB9F2425D334F800063E0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				3ABB9F2225D334F700063E0B /* DesignCodeApp.swift */,
 				3ABB9F2425D334F800063E0B /* ContentView.swift */,
 				3A42D78225D86CEA007CB649 /* Home.swift */,
+				3AA9D8E325D97C4E00A62D10 /* HomeList.swift */,
 				3ABB9F2625D334FA00063E0B /* Assets.xcassets */,
 				3ABB9F2B25D334FA00063E0B /* Info.plist */,
 				3ABB9F2825D334FA00063E0B /* Preview Content */,
@@ -143,6 +146,7 @@
 			files = (
 				3ABB9F2525D334F800063E0B /* ContentView.swift in Sources */,
 				3A42D78325D86CEA007CB649 /* Home.swift in Sources */,
+				3AA9D8E425D97C4E00A62D10 /* HomeList.swift in Sources */,
 				3ABB9F2325D334F700063E0B /* DesignCodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
