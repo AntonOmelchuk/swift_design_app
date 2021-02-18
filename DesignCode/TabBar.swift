@@ -23,5 +23,6 @@ struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
             .environment(\.colorScheme, .dark)
+            .environment(\.sizeCategory, .extraExtraLarge)
     }
 }

@@ -49,7 +49,7 @@ struct MenuRow: View {
         HStack {
             Image(systemName: image)
                 .imageScale(.large)
-                .foregroundColor(Color(.black))
+                .foregroundColor(.primary)
                 .frame(width: 32, height: 32)
             Text(label)
                 .font(.headline)
@@ -86,7 +86,7 @@ struct MenuView: View {
         .padding(.top, 20)
         .padding(30)
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-        .background(Color.white)
+        .background(BlurView(style: .systemMaterial))
         .cornerRadius(30)
         .padding(.trailing, 60)
         .shadow(radius: 21)
@@ -105,10 +105,10 @@ struct CircleButton: View {
     var body: some View {
         HStack {
             Image(systemName: icon)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
         }
         .frame(width: 44, height: 44)
-        .background(Color.white)
+        .background(BlurView(style: .systemThickMaterial))
         .cornerRadius(30)
         .shadow(color: Color("buttonShadow"), radius: 10, x: 0, y: 10)
     }
@@ -123,11 +123,11 @@ struct MenuButton: View {
                 HStack {
                     Spacer()
                     Image(systemName: "list.dash")
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
                 .padding(.trailing, 20)
                 .frame(width: 90, height: 60)
-                .background(Color.white)
+                .background(BlurView(style: .systemThickMaterial))
                 .cornerRadius(30)
                 .shadow(color: Color("buttonShadow"), radius: 20, x: 0, y: 10)
             }
