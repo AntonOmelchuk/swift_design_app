@@ -23,7 +23,7 @@ struct Home: View {
                 .cornerRadius(30)
                 .shadow(radius: 20)
                 .animation(.default)
-                .offset(y: showProfile ? 0 : UIScreen.main.bounds.height)
+                .offset(y: showProfile ? 45 : UIScreen.main.bounds.height)
             
             HStack {
                 MenuButton(show: $show)

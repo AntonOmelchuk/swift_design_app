@@ -11,8 +11,8 @@ struct TabBar: View {
                 Label("Certificates", systemImage: "rectangle.on.rectangle")
             }
             .tag(2)
-            UpdateList().tabItem {
-                Label("Updates", systemImage: "gear")
+            Settings().tabItem {
+                Label("Settings", systemImage: "gear")
             }
             .tag(3)
         }
@@ -21,8 +21,11 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
-            .environment(\.colorScheme, .dark)
-            .environment(\.sizeCategory, .extraExtraLarge)
+        Group {
+            TabBar()
+            TabBar()
+                .environment(\.colorScheme, .dark)
+                .environment(\.sizeCategory, .extraLarge)
+        }
     }
 }

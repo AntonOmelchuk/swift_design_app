@@ -10,6 +10,7 @@ struct ContentView: View {
             BlurView(style: .systemMaterial)
             
             TitleView()
+                .padding(.top, 12.0)
                 .blur(radius: show ? 20 : 0)
                 .animation(.default)
             
@@ -21,13 +22,14 @@ struct ContentView: View {
                 .background(show ? Color.red : Color("background9"))
                 .cornerRadius(12)
                 .shadow(radius: 21)
-                .offset(x: 0, y: show ? -300 : -40)
+                .offset(x: 0, y: show ? -210 : -40)
                 .scaleEffect(0.85)
                 .rotationEffect(Angle(degrees: show ? 15 : 0))
                 .rotation3DEffect(Angle(degrees: show ? 40 : 0), axis: /*@START_MENU_TOKEN@*/(x: 10.0, y: 10.0, z: 10.0)/*@END_MENU_TOKEN@*/)
                 .blendMode(.hardLight)
                 .animation(.easeInOut(duration: 0.7))
                 .offset(x: viewState.width, y: viewState.height)
+                .padding(.top, 90.0)
             
             CardView()
                 .background(show ? Color("background5") : Color("background8"))
@@ -40,8 +42,10 @@ struct ContentView: View {
                 .blendMode(.hardLight)
                 .animation(.easeInOut(duration: 0.5))
                 .offset(x: viewState.width, y: viewState.height)
+                .padding(.top, 90.0)
             
             CertificateView()
+                .padding(.top, 90.0)
                 .offset(x: viewState.width, y: viewState.height)
                 .scaleEffect(0.95)
                 .rotationEffect(Angle(degrees: show ? 5 : 0))
@@ -130,7 +134,7 @@ struct CardBottomView: View {
                 .frame(width: 60, height: 6)
                 .cornerRadius(3)
                 .opacity(0.1)
-            Text("This certificate is proog that Anton Omelchuk has achieved the UI Design with approval from a Design+Code instructor")
+            Text("UI Design certificate")
                 .lineLimit(10)
             Spacer()
         }

@@ -33,7 +33,7 @@ struct HomeList: View {
                         
                     }
                 }.sheet(isPresented: $show, content: {
-                    Home()
+                    CourseView()
                 })
                 .padding(.leading, 40)
             }
