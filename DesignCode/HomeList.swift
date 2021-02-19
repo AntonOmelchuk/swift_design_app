@@ -5,7 +5,7 @@ struct HomeList: View {
     var courses = coursesData
     
     var body: some View {
-        VStack {
+        ScrollView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("Courses")
@@ -17,18 +17,21 @@ struct HomeList: View {
                 Spacer()
             }
             .padding(.leading, 70)
-            .padding(.bottom, 40)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 30) {
                     ForEach(courses) { item in
                         Button(action: { self.show.toggle() }) {
-                            CourseView(
-                                title: item.title,
-                                image: item.image,
-                                color: item.color,
-                                shadowColor: item.shadowColor
-                            )
+                            GeometryReader { geometry in
+                                CourseView(
+                                    title: item.title,
+                                    image: item.image,
+                                    color: item.color,
+                                    shadowColor: item.shadowColor
+                                )
+                                .rotation3DEffect(Angle(degrees: Double(geometry.frame(in: .global).minX - 40) / -20), axis: (x: 0, y: 10.0, z: 0))
+                            }
+                            .frame(width: 246)
                         }
                         
                     }
@@ -36,9 +39,12 @@ struct HomeList: View {
                     CourseView()
                 })
                 .padding(.leading, 40)
+                .padding(.top, 30.0)
             }
+            .frame(height: 420)
             Spacer()
-        }
+            CertificateRow()
+        } 
         .padding(.top, 78.0)
             
     }
@@ -91,4 +97,7 @@ struct Course: Identifiable {
 let coursesData = [
     Course(title: "Build an app with SwiftUI", image: "Illustration1", color: Color("background3"), shadowColor: Color("backgroundShadow3")),
     Course(title: "Design Course", image: "Illustration2", color: Color("background4"), shadowColor: Color("backgroundShadow4")),
+    Course(title: "Swift UI Advanced", image: "Illustration3", color: Color("background7"), shadowColor: Color("backgroundShadow3")),
+    Course(title: "Frame Playground", image: "Illustration4", color: Color("background8"), shadowColor: Color("backgroundShadow4")),
+    Course(title: "React Native Advanced", image: "Illustration5", color: Color("background9"), shadowColor: Color("backgroundShadow3")),
 ]

@@ -84,16 +84,18 @@ struct CardView: View {
 }
 
 struct CertificateView: View {
+    var item = Certificate(title: "UI Design", image: "Background", width: 340, height: 220)
+    
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("SwiftUI")
+                    Text(item.title)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                         .padding(.top)
-                    Text("certificate")
+                    Text("Certificate")
                         .foregroundColor(Color("accent"))
                 }
                 Spacer()
@@ -103,12 +105,14 @@ struct CertificateView: View {
             }
             .padding(.horizontal)
             Spacer()
-            Image("Background")
+            Image(item.image)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .offset(y: 50)
         }
-        .frame(width: 340, height: 220)
+        .frame(width: CGFloat(item.width), height: CGFloat(item.height))
         .background(Color.black)
         .cornerRadius(12)
-        .shadow(radius: 21)
+        .shadow(radius: 9)
     }
 }
 
